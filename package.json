@@ -2,6 +2,7 @@
   "dependencies": {
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-lazy-load-image-component": "^1.5.0",
     "react-promise-tracker": "^2.1.0",
     "webpack": "^4.44.1"
   },
@@ -34,6 +35,7 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.13.2",
     "react-hot-loader": "^4.12.21",
+    "react-lazyload": "^3.0.0",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",

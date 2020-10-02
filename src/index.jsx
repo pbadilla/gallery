@@ -8,8 +8,7 @@ import { hot } from "react-hot-loader";
 import store from "./redux/store";
 
 import { Home } from "./containers/home";
-import Movie from "./containers/movie";
-import wishList from "./containers/wishlist";
+import Image from "./containers/image";
 
 import "./index.scss";
 
@@ -22,8 +21,7 @@ render(
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/movie/:kindMovie/:id" component={Movie} />
-        <Route exact path="/wishlist" component={wishList} />
+        <Route exact path="/photo/:id" component={Image} />
       </Switch>
     </Router>
   </Provider>,

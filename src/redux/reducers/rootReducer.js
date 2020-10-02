@@ -1,12 +1,10 @@
-import { combineReducers } from 'redux';
-import movies from './ListtOfMoviesReducer';
-import movie from './singleMovieReducer';
-import wishlist from './wishListReducer';
+import { combineReducers } from "redux";
+import images from "./ImagesReducer";
+import image from "./ImageReducer";
 
 const rootReducer = combineReducers({
-    movies,
-    movie,
-    wishlist
+  images,
+  image,
 });
 
 export default rootReducer;

@@ -1,76 +1,70 @@
-export const FETCH_MOVIES_BEGIN = "FETCH_MOVIES_BEGIN";
-export const FETCH_MOVIES_SUCCESS = "FETCH_MOVIES_SUCCESS";
-export const FETCH_MOVIES_FAILURE = "FETCH_MOVIES_FAILURE";
-export const FETCH_MOVIE_BEGIN = "FETCH_MOVIE_BEGIN";
-export const FETCH_MOVIE_SUCCESS = "FETCH_MOVIE_SUCCESS";
-export const FETCH_MOVIE_FAILURE = "FETCH_MOVIE_FAILURE";
-export const SET_MOVIE_WISHLIST = "SET_MOVIE_WISHLIST";
-export const PUT_MOVIE_WISHLIST = "PUT_MOVIE_WISHLIST";
+import {
+  FETCH_IMAGES_SUCCESS,
+  FETCH_IMAGES_FAILURE,
+  FETCH_IMAGE_BEGIN,
+  FETCH_IMAGE_SUCCESS,
+  FETCH_IMAGE_FAILURE,
+} from "../actions/action-types";
 
-export function getMovies(genres) {
+export function getImages() {
   return (dispatch) => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${genres}?api_key=7006edd4690fd5f45e7b5cb6b1561357&language=en-US`
+      `https://api.giphy.com/v1/gifs/search?api_key=75htWLrq0ebXnN7oSpV23LFIYfR14Tch&q=barcelona&limit=25&offset=0&rating=g&lang=en`
     )
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        dispatch(fetchMoviesSuccess(data.results));
+        dispatch(fetchImagesSuccess(data));
       })
       .catch(function (err) {
-        dispatch(fetchMoviesFailure(err));
+        dispatch(fetchImagesFailure(err));
         console.error(err);
       });
   };
 }
-export function getMovie(id, kind) {
+export function getImage(id) {
   return (dispatch) => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=7006edd4690fd5f45e7b5cb6b1561357&language=en-US`
+      `https://api.giphy.com/v1/gifs/${id}?api_key=75htWLrq0ebXnN7oSpV23LFIYfR14Tch`
     )
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        dispatch(fetchMovieSuccess(data, kind));
+        dispatch(fetchImageSuccess(data));
       })
       .catch(function (err) {
-        dispatch(fetchMovieFailure(err));
+        dispatch(fetchImageFailure(err));
         console.error(err);
       });
   };
 }
 
-export const fetchMoviesBegin = () => ({
-  type: FETCH_MOVIES_BEGIN,
+export const fetchImagesBegin = () => ({
+  type: FETCH_IMAGES_BEGIN,
 });
 
-export const fetchMoviesSuccess = (movies) => ({
-  type: FETCH_MOVIES_SUCCESS,
-  payload: { movies },
+export const fetchImagesSuccess = (images) => ({
+  type: FETCH_IMAGES_SUCCESS,
+  payload: { images },
 });
 
-export const fetchMoviesFailure = (error) => ({
-  type: FETCH_MOVIES_FAILURE,
+export const fetchImagesFailure = (error) => ({
+  type: FETCH_IMAGES_FAILURE,
   payload: { error },
 });
 
-export const fetchMovieBegin = () => ({
-  type: FETCH_MOVIE_BEGIN,
+export const fetchImageBegin = () => ({
+  type: FETCH_IMAGE_BEGIN,
 });
 
-export const fetchMovieSuccess = (movie, kind) => ({
-  type: FETCH_MOVIE_SUCCESS,
-  payload: { movie, kind },
+export const fetchImageSuccess = (image, kind) => ({
+  type: FETCH_IMAGE_SUCCESS,
+  payload: { image },
 });
 
-export const fetchMovieFailure = (error) => ({
-  type: FETCH_MOVIE_FAILURE,
+export const fetchImageFailure = (error) => ({
+  type: FETCH_IMAGE_FAILURE,
   payload: { error },
-});
-
-export const putMovieWishList = (movieName) => ({
-  type: PUT_MOVIE_WISHLIST,
-  payload: { movieName },
 });

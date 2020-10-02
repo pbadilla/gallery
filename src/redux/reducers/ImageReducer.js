@@ -1,12 +1,11 @@
 import {
-  FETCH_MOVIE_BEGIN,
-  FETCH_MOVIE_SUCCESS,
-  FETCH_MOVIE_FAILURE,
-} from "../actions";
+  FETCH_IMAGE_BEGIN,
+  FETCH_IMAGE_SUCCESS,
+  FETCH_IMAGE_FAILURE,
+} from "../actions/action-types";
 
 const initialState = {
-  movie: null,
-  kind: null,
+  image: null,
   loading: false,
   error: null,
 };
@@ -15,24 +14,23 @@ export default function (state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case FETCH_MOVIE_BEGIN:
+    case FETCH_IMAGE_BEGIN:
       return {
         ...state,
         loading: true,
         error: null,
       };
-    case FETCH_MOVIE_SUCCESS:
+    case FETCH_IMAGE_SUCCESS:
       return {
         loading: false,
-        kind: payload.kind,
-        movie: payload.movie,
+        image: payload.image.data,
       };
-    case FETCH_MOVIE_FAILURE:
+    case FETCH_IMAGE_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
-        movie: {},
+        image: {},
       };
     default:
       return state;
