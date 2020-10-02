@@ -1,4 +1,4 @@
-# MyTheresa Carousel V.1.0
+# Gallery Images V.1.0.0
 
 ## Project by @pachibadilla
 
@@ -7,7 +7,7 @@
 - React
 - Redux
 - Webpack
-- Sass
+- Sass/SCSS
 - HTML5
 
 ### How to start:
@@ -17,7 +17,3 @@
 - After the installation you have to write on your console `yarn start`, and
   project should load on port 9000, so on you browser, if not romt automatically you could write:
   `http://localhost:9000` and project should render.
-
-### Items to upgrade: 
-- For sure I am not using sass on react projects I use `styled-components` on my point of view, more accurate it.
-- `wihslist`is just for session on redux: I didn't see on API TMBD.org any place or command to add `lists` so maybe it could be reconsider this on local BBDD (for example mongodb ) or place on cloud.
